@@ -29,5 +29,7 @@ void selection_sort(int *array, size_t size);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void swap(int *a, int *b);
-
+int LargestKnuthGap(int n);
+void reduceGap(int *gap);
+void shell_sort(int *array, size_t size);
 #endif
