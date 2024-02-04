@@ -1,16 +1,15 @@
-#include "sort.h"
-
 /**
- *insertion_sort_list - function that does insertion sort
- *@list: head node
+ * insertion_sort_list - Sorts a doubly linked list of integers in ascending order using the insertion sort algorithm.
  *
+ * @list: A pointer to the head of the doubly linked list.
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current, *prev, *next;
-
+	// Check if the list is empty or has only one element
 	if (*list == NULL || (*list)->next == NULL)
 		return;
+
+	listint_t *current, *prev, *next;
 
 	current = (*list)->next;
 
@@ -19,6 +18,7 @@ void insertion_sort_list(listint_t **list)
 		next = current->next;
 		prev = current->prev;
 
+		// Move the current node to its correct position in the sorted part of the list
 		while (prev != NULL && prev->n > current->n)
 		{
 			prev->next = current->next;
@@ -40,23 +40,4 @@ void insertion_sort_list(listint_t **list)
 
 		current = next;
 	}
-}
-
-/**
- *swap_list - function for swapping doubly linked list
- *@a: the node that's greater than b
- *@b: the node that's less than a
- */
-void swap_list(listint_t *a, listint_t *b)
-{
-	if (a->prev != NULL)
-		a->prev->next = b;
-
-	if (b->next != NULL)
-		b->next->prev = a;
-
-	a->next = b->next;
-	b->prev = a->prev;
-	a->prev = b;
-	b->next = a;
 }
